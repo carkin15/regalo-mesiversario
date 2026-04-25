@@ -104,10 +104,14 @@ function iniciarCorazon() {
 
 // Lógica de Videos que ya tenías
 canvas.onclick = function() {
-    if (!canvas.classList.contains('oculto')) {
+    if (!contenedorCorazon.classList.contains('oculto')) {
         document.getElementById('inicio').style.display = 'none';
         document.getElementById('sorpresa').classList.remove('oculto');
-        video1.play();
+        
+        // Usamos las variables que definiste abajo (vid1 y vid2)
+        vid1.style.display = 'block';
+        vid2.style.display = 'none';
+        vid1.play();
     }
 };
 
@@ -123,11 +127,13 @@ vid1.onended = function() {
 
 // Cuando el segundo video termine...
 vid2.onended = function() {
-    // Aquí hacemos que aparezcan los dos juntos, uno arriba del otro
+    // Cambiamos la orientación de la galería a vertical para que quepan ambos
+    document.querySelector('.galeria').style.flexDirection = 'column';
+    
     vid1.style.display = 'block';
     vid2.style.display = 'block';
     
-    // Opcional: Podrías poner un mensaje final aquí
+    // Opcional: que vuelvan a empezar o se queden quietos
     console.log("¡Ambos videos terminaron!");
 };
 
@@ -143,8 +149,24 @@ function pausarReanudar() {
     }
 }
 function volverAlInicio() {
-    video1.pause(); video1.currentTime = 0; video2.pause(); video2.currentTime = 0;
+    // 1. Pausamos y reseteamos el tiempo de ambos videos
+    vid1.pause(); 
+    vid1.currentTime = 0; 
+    vid2.pause(); 
+    vid2.currentTime = 0;
+
+    // 2. IMPORTANTE: Resetear la visibilidad (Primero se ve, segundo se oculta)
+    vid1.style.display = 'block';
+    vid2.style.display = 'none';
+
+    // 3. Quitar el modo "uno arriba del otro" si es que ya terminó la transición
+    const galeria = document.querySelector('.galeria');
+    if(galeria) {
+        galeria.style.flexDirection = 'row'; // O el valor que tengas por defecto
+    }
+
+    // 4. Cambiar las pantallas
     document.getElementById('sorpresa').classList.add('oculto');
-    document.getElementById('inicio').style.display = 'flex';
-    document.getElementById('inicio').style.overflow = 'hidden';
+    // Usamos 'block' o el que uses para que se vea el inicio
+    document.getElementById('inicio').style.display = 'block'; 
 }
