@@ -1,9 +1,15 @@
-/* Estilos Base - No tocar */
-body { background-color: black; margin: 0; color: white; font-family: 'Arial', sans-serif; overflow: hidden; text-align: center; }
-#inicio { display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; }
-#mensaje-espera { text-shadow: 0 0 15px #ff0033; margin-bottom: 20px; font-size: 1.5rem; }
-#sub-mensaje { color: #888; font-size: 0.9rem; margin-top: 15px; }
-
+/* Estilos Base - Corregido para permitir scroll */
+body { 
+    background-color: black; 
+    margin: 0; 
+    color: white; 
+    font-family: 'Arial', sans-serif; 
+    /* Cambiamos overflow: hidden por auto para que cuando los videos 
+       sean largos, puedas bajar */
+    overflow-x: hidden; 
+    overflow-y: auto; 
+    text-align: center; 
+}
 /* Contenedor Principal de la Imagen y Reloj */
 #contenedor-puerta {
     position: relative;
@@ -146,20 +152,22 @@ body { background-color: black; margin: 0; color: white; font-family: 'Arial', s
 .galeria {
     flex-grow: 1;
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Pone los videos en lista, uno abajo del otro */
+    align-items: center; 
     justify-content: center;
     width: 100%;
-    /* No le pongas height: 300px ni nada fijo aquí */
+    gap: 20px; /* Espacio entre el primer y segundo video */
 }
 
+/* BORRA LA QUE DICE width: 160px y deja esta: */
 .video-regalo {
-    width: 90vw;          /* Usa el ancho de la pantalla */
-    max-width: 400px;     /* Para que no se vea gigante en PC */
-    height: auto;         /* ¡ESTO ES CLAVE! Hace que el alto se ajuste solo */
-    aspect-ratio: auto;   /* Elimina cualquier proporción forzada */
-    object-fit: contain;  /* Asegura que todo el video se vea sin cortes */
+    width: 90vw;          /* Ocupa casi todo el ancho del celular */
+    max-width: 400px;     
+    height: auto;         /* Esto evita que se vea cuadrado o cortado */
+    aspect-ratio: auto;   
+    object-fit: contain;  
     display: block;
-    margin: 0 auto;
+    margin: 10px auto;    /* Añadimos un poco de margen entre videos */
     border-radius: 15px;
     box-shadow: 0 0 20px #ff0055;
 }
