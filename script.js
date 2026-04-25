@@ -1,5 +1,5 @@
-// Configuración de la Fecha Meta (25 de Abril de 2026)
-const fechaMeta = new Date(2026, 3, 25, 0, 0, 0).getTime(); // 3 es Abril
+// Configuración de la Fecha Meta (27 de Abril de 2026)
+const fechaMeta = new Date(2026, 3, 27, 0, 0, 0).getTime(); // 3 es Abril
 
 const canvas = document.getElementById('heart');
 const puerta = document.getElementById('contenedor-puerta');
