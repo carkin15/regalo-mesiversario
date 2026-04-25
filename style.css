@@ -114,15 +114,6 @@ body { background-color: black; margin: 0; color: white; font-family: 'Arial', s
     z-index: 10;
 }
 
-.video-regalo {
-    width: 95vw;         /* 95vw significa "el 95% del ancho de la ventana" */
-    max-width: 500px;    /* Esto evita que en el PC se vea exageradamente grande */
-    height: auto;
-    display: block;
-    margin: 10px auto;
-    border-radius: 10px;
-}
-
 /* Esto asegura que el contenedor de los videos no los esté apretando */
 .contenedor-videos {
     display: flex;
@@ -131,7 +122,64 @@ body { background-color: black; margin: 0; color: white; font-family: 'Arial', s
     width: 100%;
 }
 
+/* Contenedor principal de la sorpresa */
+#sorpresa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Esto empuja el título arriba y los botones abajo */
+    min-height: 100vh; /* Obliga a usar todo el alto de la pantalla del celular */
+    padding: 40px 0;   /* Espacio de respiro arriba y abajo */
+    background-color: black; /* Para que coincida con tu fondo */
+    box-sizing: border-box;
+}
+
+/* Título arriba */
+.titulo-galeria {
+    color: white;
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px #ff0055;
+    margin: 0;
+}
+
+/* Contenedor del video al centro */
+.galeria {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* No le pongas height: 300px ni nada fijo aquí */
+}
+
+.video-regalo {
+    width: 90vw;          /* Usa el ancho de la pantalla */
+    max-width: 400px;     /* Para que no se vea gigante en PC */
+    height: auto;         /* ¡ESTO ES CLAVE! Hace que el alto se ajuste solo */
+    aspect-ratio: auto;   /* Elimina cualquier proporción forzada */
+    object-fit: contain;  /* Asegura que todo el video se vea sin cortes */
+    display: block;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #ff0055;
+}
+
+/* Contenedores de botones abajo */
 .controles {
-    margin-top: 20px;
-    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding-bottom: 30px; /* Aquí ajustas qué tan abajo quedan */
+}
+
+.btn-interactivo {
+    padding: 15px 20px;
+    background-color: #ff0055;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.6);
 }

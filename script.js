@@ -111,14 +111,36 @@ canvas.onclick = function() {
     }
 };
 
-const video1 = document.getElementById('video1');
-const video2 = document.getElementById('video2');
-video1.onended = () => video2.play();
+const vid1 = document.getElementById('video1');
+const vid2 = document.getElementById('video2');
+
+// Cuando el primer video termine...
+vid1.onended = function() {
+    vid1.style.display = 'none'; // Ocultamos el primero
+    vid2.style.display = 'block'; // Mostramos el segundo
+    vid2.play(); // ¡Le damos play automáticamente!
+};
+
+// Cuando el segundo video termine...
+vid2.onended = function() {
+    // Aquí hacemos que aparezcan los dos juntos, uno arriba del otro
+    vid1.style.display = 'block';
+    vid2.style.display = 'block';
+    
+    // Opcional: Podrías poner un mensaje final aquí
+    console.log("¡Ambos videos terminaron!");
+};
 
 // Funciones de los botones de video que ya tenías
 function pausarReanudar() {
-    if (!video1.paused && !video1.ended) { video1.pause(); } else if (video1.paused && !video1.ended) { video1.play(); }
-    if (!video2.paused && !video2.ended) { video2.pause(); } else if (video2.paused && video1.ended) { video2.play(); }
+    // Si el video 1 se está viendo, lo pausamos a él
+    if (vid1.style.display !== 'none') {
+        if (vid1.paused) vid1.play(); else vid1.pause();
+    } 
+    // Si no, pausamos al video 2
+    else {
+        if (vid2.paused) vid2.play(); else vid2.pause();
+    }
 }
 function volverAlInicio() {
     video1.pause(); video1.currentTime = 0; video2.pause(); video2.currentTime = 0;
