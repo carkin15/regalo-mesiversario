@@ -114,11 +114,26 @@ body { background-color: black; margin: 0; color: white; font-family: 'Arial', s
     z-index: 10;
 }
 
-video {
-    width: 100%;       /* Ocupa todo el ancho disponible */
-    max-width: 600px;  /* Pero que no pase de 500px para que no se pixele */
-    height: auto;      /* Mantiene la proporción para que no se vea estirado */
-    border-radius: 15px; /* Opcional: le da bordes redondeados para que se vea más moderno */
-    display: block;
-    margin: 20px auto; /* Lo centra y le da espacio arriba/abajo */
+.video-regalo {
+    width: 90%;          /* Ocupa casi todo el ancho del celular */
+    max-width: 600px;    /* Para que en PC no se vea gigante */
+    height: auto;        /* Mantiene la forma original del video */
+    display: block;      /* Permite centrarlo */
+    margin: 15px auto;   /* Lo centra y le da espacio entre videos */
+    border: 3px solid #ff0055; /* Opcional: un borde neón que combine con tu corazón */
+    border-radius: 12px; /* Bordes redondeados para que se vea más pulido */
+    box-shadow: 0 0 15px #ff0055; /* Efecto de brillo neón */
+}
+
+/* Esto asegura que el contenedor de los videos no los esté apretando */
+.contenedor-videos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.controles {
+    margin-top: 20px;
+    text-align: center;
 }
