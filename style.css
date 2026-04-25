@@ -115,14 +115,12 @@ body { background-color: black; margin: 0; color: white; font-family: 'Arial', s
 }
 
 .video-regalo {
-    width: 90%;          /* Ocupa casi todo el ancho del celular */
-    max-width: 600px;    /* Para que en PC no se vea gigante */
-    height: auto;        /* Mantiene la forma original del video */
-    display: block;      /* Permite centrarlo */
-    margin: 15px auto;   /* Lo centra y le da espacio entre videos */
-    border: 3px solid #ff0055; /* Opcional: un borde neón que combine con tu corazón */
-    border-radius: 12px; /* Bordes redondeados para que se vea más pulido */
-    box-shadow: 0 0 15px #ff0055; /* Efecto de brillo neón */
+    width: 95vw;         /* 95vw significa "el 95% del ancho de la ventana" */
+    max-width: 500px;    /* Esto evita que en el PC se vea exageradamente grande */
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
 }
 
 /* Esto asegura que el contenedor de los videos no los esté apretando */
