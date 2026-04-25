@@ -113,3 +113,12 @@ body { background-color: black; margin: 0; color: white; font-family: 'Arial', s
     margin-bottom: 40px;
     z-index: 10;
 }
+
+video {
+    width: 100%;       /* Ocupa todo el ancho disponible */
+    max-width: 600px;  /* Pero que no pase de 500px para que no se pixele */
+    height: auto;      /* Mantiene la proporción para que no se vea estirado */
+    border-radius: 15px; /* Opcional: le da bordes redondeados para que se vea más moderno */
+    display: block;
+    margin: 20px auto; /* Lo centra y le da espacio arriba/abajo */
+}
