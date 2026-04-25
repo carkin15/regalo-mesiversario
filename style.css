@@ -1,0 +1,115 @@
+/* Estilos Base - No tocar */
+body { background-color: black; margin: 0; color: white; font-family: 'Arial', sans-serif; overflow: hidden; text-align: center; }
+#inicio { display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; }
+#mensaje-espera { text-shadow: 0 0 15px #ff0033; margin-bottom: 20px; font-size: 1.5rem; }
+#sub-mensaje { color: #888; font-size: 0.9rem; margin-top: 15px; }
+
+/* Contenedor Principal de la Imagen y Reloj */
+#contenedor-puerta {
+    position: relative;
+    width: 350px; /* Tamaño de la imagen */
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+#img-candado {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #ff0033;
+    display: block; /* Elimina espacio en blanco debajo */
+}
+
+/* El Reloj Neón - Coordenadas Exactas para tu Imagen */
+#reloj-digital {
+    position: absolute;
+    top: 30%; /* Baja los números justo al centro de los corazones de la imagen */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0px; /* Espacio entre los corazones */
+    pointer-events: none; /* Evita que el reloj robe el clic del candado */
+}
+
+.bloque-tiempo {
+    width: 59px; /* Ancho de cada corazón en tu imagen */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dias, #horas, #minutos, #segundos {
+    font-size: 1.5rem; /* Tamaño de los números */
+    font-weight: bold;
+    color: #ff0033; /* Neón Rojo */
+    text-shadow: 0 0 15px #ff0033, 0 0 5px #fff;
+    line-height: 1;
+}
+
+.etiqueta-tiempo {
+    font-size: 0.6rem;
+    color: #ff0033;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+/* ANIMACIONES */
+
+/* 1. Animación de "Sacudir" (para cuando es temprano) */
+.sacudir {
+    animation: shake 0.5s;
+    box-shadow: 0 0 30px #ff0033 !important; /* Brillo extra al sacudir */
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px) rotate(-1deg); }
+    20%, 40%, 60%, 80% { transform: translateX(5px) rotate(1deg); }
+}
+
+/* 2. Animación de "Abrir" (para el 27) */
+.abrir-candado {
+    animation: open 1.5s forwards;
+}
+
+@keyframes open {
+    0% { transform: scale(1); opacity: 1; }
+    30% { transform: scale(1.1); filter: brightness(2); }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+/* Resto del estilo que ya tenías */
+.oculto { display: none; }
+.galeria { display: flex; justify-content: center; gap: 5px; margin-top: 20px; }
+.video-regalo { width: 160px; height: 280px; border-radius: 10px; border: 2px solid #ff0033; object-fit: cover; }
+.btn-interactivo { background: transparent; color: white; border: 2px solid #ff0033; padding: 10px; border-radius: 20px; cursor: pointer; margin: 10px; }
+
+/* 1. Esta regla asegura que lo que esté oculto NO se vea bajo ninguna circunstancia */
+.oculto {
+    display: none !important;
+}
+
+/* 2. Este es el contenedor que guarda el corazón y su mensaje */
+#contenedor-corazon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Esto centra el bloque completo */
+    align-items: center;
+    height: 100vh;
+    gap: 10px; /* <--- ESTO es lo que controla la distancia entre el texto y el corazón */
+}
+
+/* 3. Este es el mensaje "Si me amas..." RECORREGIDO */
+#instruccion {
+    color: white;
+    text-shadow: 0 0 15px #ff0033;
+    font-size: 1.5rem;
+    
+    /* Usamos position relative para moverlo sin romper el diseño */
+    position: relative;
+    top: 120px; /* Si lo quieres más abajo, sube este número a 100 o 120 */
+    
+    margin-bottom: 40px;
+    z-index: 10;
+}

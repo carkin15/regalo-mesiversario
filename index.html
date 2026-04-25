@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Un regalo para ti ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="inicio">
+        <div id="pantalla-bloqueo">
+            <h1 id="mensaje-espera">Ten paciencia, amor... ❤️</h1>
+            <div id="contenedor-puerta">
+                <img src="designe.2.png" alt="Candado" id="img-candado">
+                <div id="reloj-digital">
+    <div class="bloque-tiempo"><span id="dias">00</span></div>
+    <div class="bloque-tiempo"><span id="horas">00</span></div>
+    <div class="bloque-tiempo"><span id="minutos">00</span></div>
+    <div class="bloque-tiempo"><span id="segundos">00</span></div>
+</div>
+            </div>
+            <p id="sub-mensaje">No podrás abrirlo hasta el 27 de Abril.</p>
+        </div>
+
+        <div id="contenedor-corazon" class="oculto">
+            <h1 id="instruccion">Si me amas, toca el corazón...</h1>
+            <canvas id="heart"></canvas>
+        </div>
+    </div>
+
+    <div id="sorpresa" class="oculto">
+        <h2 class="titulo-galeria">Nuestros Momentos ❤️</h2>
+        <div class="galeria">
+            <video id="video1" class="video-regalo" src="lamejoramor.mp4" playsinline></video>
+            <video id="video2" class="video-regalo" src="miamorvideo.mp4" playsinline></video>
+        </div>
+        <div class="controles">
+            <button onclick="pausarReanudar()" class="btn-interactivo">Pausar / Play</button>
+            <button onclick="volverAlInicio()" class="btn-interactivo">Atrás</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
